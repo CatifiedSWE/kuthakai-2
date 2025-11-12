@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f6f5;
+  --foreground: #181211;
+  --primary: #f86b59;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --font-inter: var(--font-inter);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #221210;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  min-height: 100dvh;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glassmorphism {
+  background: rgba(34, 18, 16, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom checkbox styling for dark mode */
+input[type="checkbox"]:checked {
+  background-color: #f86d5b;
+  border-color: #f86d5b;
+}
+
+input[type="checkbox"]:focus {
+  ring-color: #f86d5b;
+}
+
+/* Range slider styling */
+input[type="range"]::-webkit-slider-thumb {
+  background: #f86d5b;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #f86d5b;
+}
