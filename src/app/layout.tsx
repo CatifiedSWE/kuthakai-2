@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Kuthakai - Peer-to-Peer Rental Marketplace",
   description: "Borrow what you need, lend what you love. India's most trusted peer-to-peer rental marketplace.",
+  appleWebApp: {
+    title: "Kuthakai",
+  },
 };
 
 export default function RootLayout({
