@@ -4,7 +4,8 @@
 This document describes the implementation of Login and Sign Up pages for the Kuthakai platform, converted from the provided HTML reference files into proper Next.js App Router pages.
 
 ## Implementation Date
-January 2025
+January 2025 (Initial Login/Signup)
+January 2025 (Forgot Password & Reset Password Added)
 
 ## Project Structure
 
@@ -23,15 +24,25 @@ January 2025
 │   ├── login/
 │   │   ├── LoginForm.tsx             # Login form component
 │   │   └── index.ts                  # Module export
-│   └── signup/
-│       ├── SignupForm.tsx            # Signup form component
+│   ├── signup/
+│   │   ├── SignupForm.tsx            # Signup form component
+│   │   └── index.ts                  # Module export
+│   ├── forgot-password/
+│   │   ├── ForgotPasswordForm.tsx    # Forgot password form component
+│   │   └── index.ts                  # Module export
+│   └── reset-password/
+│       ├── ResetPasswordForm.tsx     # Reset password form component
 │       └── index.ts                  # Module export
 │
 └── app/auth/
     ├── login/
     │   └── page.tsx                  # Login page route
-    └── signup/
-        └── page.tsx                  # Signup page route
+    ├── signup/
+    │   └── page.tsx                  # Signup page route
+    ├── forgot-password/
+    │   └── page.tsx                  # Forgot password page route
+    └── reset-password/
+        └── page.tsx                  # Reset password page route
 ```
 
 ## Pages
@@ -91,6 +102,70 @@ January 2025
 4. Displays validation errors if any
 5. Console logs user data (placeholder for actual API call)
 6. Can click "Log In" link to navigate to login page
+
+---
+
+### 3. Forgot Password Page (`/auth/forgot-password`)
+**Route**: `/auth/forgot-password`
+
+#### Features:
+- ✅ Email input field with validation
+- ✅ "Send Reset Link" button with hover effects
+- ✅ Success message display after submission
+- ✅ "Back to Login" link
+- ✅ Form validation (client-side)
+- ✅ Error messaging
+- ✅ Dark mode support
+- ✅ Mobile-first responsive design
+- ✅ Accessible from login page via "Forgot Password?" link
+
+#### Form Validation:
+- Email: Required, must be valid email format
+
+#### User Flow:
+1. User clicks "Forgot Password?" from login page
+2. User enters their email address
+3. Client-side validation on submit
+4. Displays validation errors if any
+5. Shows success message with email confirmation
+6. Console logs email (placeholder for actual API call)
+7. Can navigate back to login page
+
+---
+
+### 4. Reset Password Page (`/auth/reset-password`)
+**Route**: `/auth/reset-password`
+
+#### Features:
+- ✅ New password input field with show/hide toggle
+- ✅ Confirm password input field with show/hide toggle
+- ✅ Password strength helper text (8 characters minimum)
+- ✅ Password match validation
+- ✅ "Reset Password" button with hover effects
+- ✅ Success message display after submission
+- ✅ Error messaging with icon
+- ✅ Dark mode support
+- ✅ Mobile-first responsive design
+
+#### Form Validation:
+- New Password: Required, minimum 8 characters
+- Confirm Password: Required, must match new password
+- Match Check: Displays error if passwords don't match
+
+#### User Flow:
+1. User accesses page via password reset link (email - not implemented yet)
+2. User enters new password and confirmation
+3. Client-side validation on submit
+4. Displays validation errors if any
+5. Shows "Passwords do not match" error if needed
+6. Shows success message upon successful reset
+7. Console logs password reset (placeholder for actual API call)
+8. Can navigate to login page after success
+
+#### Note:
+- Currently no direct navigation to this page (awaiting backend authentication)
+- Page structure is ready for future email link integration
+- Direct URL access available for development/testing: `/auth/reset-password`
 
 ---
 
@@ -239,10 +314,24 @@ All components are built with mobile as the base, then enhanced for larger scree
 { id: 'signup', label: 'Sign Up', href: '/auth/signup' }
 ```
 
+**`/app/src/modules/auth/login/LoginForm.tsx`**
+
+#### Changes:
+```typescript
+// Before:
+<Link href="#forgot-password" ... >Forgot Password?</Link>
+
+// After:
+<Link href="/auth/forgot-password" ... >Forgot Password?</Link>
+```
+
 ### Navigation Flow:
 1. **Desktop Navbar** → Hamburger menu → Login/Sign Up options → Navigate to auth pages
 2. **Mobile Topbar** → Profile icon (future enhancement could show auth modal)
-3. **Within Auth Pages** → Links to switch between login/signup
+3. **Within Auth Pages** → Links to switch between login/signup/forgot-password
+4. **Login Page** → "Forgot Password?" link → Navigate to forgot password page
+5. **Forgot Password Page** → "Back to Login" link → Navigate back to login
+6. **Reset Password Page** → No direct navigation (accessed via email link - future implementation)
 
 ---
 
@@ -350,6 +439,34 @@ All validation is currently client-side only (no backend integration).
 - [ ] Test dark mode toggle
 - [ ] Test responsive design on all viewports
 
+#### Forgot Password Page:
+- [ ] Navigate to `/auth/forgot-password` from login page "Forgot Password?" link
+- [ ] Verify logo links to homepage
+- [ ] Verify back button works (top-left)
+- [ ] Try submitting empty form (should show error)
+- [ ] Try invalid email format (should show error)
+- [ ] Submit valid email (should show success message)
+- [ ] Verify success message displays submitted email
+- [ ] Click "Back to Login" link (should navigate to login)
+- [ ] Test dark mode toggle
+- [ ] Test on mobile viewport (320px, 375px, 414px)
+- [ ] Test on tablet viewport (768px)
+- [ ] Test on desktop viewport (1024px+)
+
+#### Reset Password Page:
+- [ ] Navigate to `/auth/reset-password` (direct URL for testing)
+- [ ] Verify logo links to homepage
+- [ ] Verify back button works (top-left)
+- [ ] Try submitting empty form (should show errors)
+- [ ] Try new password less than 8 characters (should show error)
+- [ ] Try mismatched passwords (should show "Passwords do not match" error)
+- [ ] Toggle password visibility on both fields (should work)
+- [ ] Verify helper text displays (8 characters minimum)
+- [ ] Submit matching valid passwords (should show success message)
+- [ ] Click "Go to Login" button after success (should navigate to login)
+- [ ] Test dark mode toggle
+- [ ] Test responsive design on all viewports
+
 ### Test IDs for Automated Testing:
 All interactive elements have `data-testid` attributes:
 
@@ -370,6 +487,18 @@ All interactive elements have `data-testid` attributes:
 - `google-signup-button`
 - `facebook-signup-button`
 - `login-link`
+
+**Forgot Password Page:**
+- `forgot-password-email-input`
+- `forgot-password-submit-button`
+- `back-to-login-link`
+
+**Reset Password Page:**
+- `reset-password-new-input`
+- `reset-password-confirm-input`
+- `password-match-error`
+- `reset-password-submit-button`
+- `go-to-login-button`
 
 ---
 
@@ -445,7 +574,45 @@ All interactive elements have `data-testid` attributes:
 
 The authentication pages have been successfully implemented as Next.js App Router pages with a mobile-first, responsive design. All components are reusable, accessible, and follow the existing project's design system and architecture principles.
 
-The implementation provides a solid foundation for future authentication features while maintaining consistency with the Kuthakai brand and user experience.
+The implementation now includes a complete authentication flow (UI only):
+- ✅ **Login** - User authentication entry point
+- ✅ **Signup** - New user registration
+- ✅ **Forgot Password** - Password recovery initiation
+- ✅ **Reset Password** - New password creation
+
+All pages provide a solid foundation for future backend authentication integration while maintaining consistency with the Kuthakai brand and user experience.
+
+---
+
+## Summary of Changes (Latest Update)
+
+### New Pages Added:
+1. **Forgot Password** (`/auth/forgot-password`)
+   - Email input for password reset request
+   - Success message display
+   - Navigation back to login
+
+2. **Reset Password** (`/auth/reset-password`)
+   - New password input with validation
+   - Confirm password with match checking
+   - Success message with login redirect
+
+### Navigation Updates:
+- Login page "Forgot Password?" link now navigates to `/auth/forgot-password`
+- Complete auth flow navigation implemented (except reset password email link)
+
+### Design Features:
+- Mobile-first responsive design (320px - 1920px+)
+- Full dark mode support across all new pages
+- Consistent styling with existing auth pages
+- Reused existing components (Input, PasswordInput, AuthLayout)
+- Accessible with proper ARIA labels and data-testid attributes
+
+### Future Integration Ready:
+- Form validation patterns ready for backend API
+- Success/error state management in place
+- Console logging for debugging (ready to replace with API calls)
+- Reset password page ready for email token validation
 
 ---
 
@@ -454,6 +621,10 @@ The implementation provides a solid foundation for future authentication feature
 For questions or issues related to this implementation:
 1. Review the code in `/app/src/modules/auth/`
 2. Check this documentation for clarification
-3. Test pages at `/auth/login` and `/auth/signup`
+3. Test pages at:
+   - `/auth/login`
+   - `/auth/signup`
+   - `/auth/forgot-password`
+   - `/auth/reset-password`
 
 **Last Updated**: January 2025

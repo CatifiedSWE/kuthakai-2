@@ -69,7 +69,7 @@ export default function LoginForm() {
         
         <div className="w-full pt-2">
           <Link 
-            href="#forgot-password" 
+            href="/auth/forgot-password" 
             className="text-right text-primary text-sm font-medium leading-normal underline cursor-pointer hover:text-primary/80 transition-colors block"
             data-testid="forgot-password-link"
           >
