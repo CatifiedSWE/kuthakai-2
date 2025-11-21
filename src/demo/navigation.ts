@@ -20,8 +20,8 @@ export const mobileNavItems: NavItem[] = [
 ];
 
 export const guestMenuItems: NavItem[] = [
-  { id: 'login', label: 'Login', href: '#login' },
-  { id: 'signup', label: 'Sign Up', href: '#signup' },
+  { id: 'login', label: 'Login', href: '/auth/login' },
+  { id: 'signup', label: 'Sign Up', href: '/auth/signup' },
   { id: 'help', label: 'Help Center', href: '#help' },
   { id: 'refer', label: 'Refer & Earn', href: '#refer' },
 ];
