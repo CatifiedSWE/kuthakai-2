@@ -30,8 +30,11 @@ January 2025 (Forgot Password & Reset Password Added)
 │   ├── forgot-password/
 │   │   ├── ForgotPasswordForm.tsx    # Forgot password form component
 │   │   └── index.ts                  # Module export
-│   └── reset-password/
-│       ├── ResetPasswordForm.tsx     # Reset password form component
+│   ├── reset-password/
+│   │   ├── ResetPasswordForm.tsx     # Reset password form component
+│   │   └── index.ts                  # Module export
+│   └── otp-verification/
+│       ├── OTPVerificationForm.tsx   # OTP verification form component
 │       └── index.ts                  # Module export
 │
 └── app/auth/
@@ -41,8 +44,10 @@ January 2025 (Forgot Password & Reset Password Added)
     │   └── page.tsx                  # Signup page route
     ├── forgot-password/
     │   └── page.tsx                  # Forgot password page route
-    └── reset-password/
-        └── page.tsx                  # Reset password page route
+    ├── reset-password/
+    │   └── page.tsx                  # Reset password page route
+    └── otp-verification/
+        └── page.tsx                  # OTP verification page route
 ```
 
 ## Pages
@@ -166,6 +171,56 @@ January 2025 (Forgot Password & Reset Password Added)
 - Currently no direct navigation to this page (awaiting backend authentication)
 - Page structure is ready for future email link integration
 - Direct URL access available for development/testing: `/auth/reset-password`
+
+---
+
+### 5. OTP Verification Page (`/auth/otp-verification`)
+**Route**: `/auth/otp-verification`
+
+#### Features:
+- ✅ Four separate digit input fields (4-digit OTP)
+- ✅ Auto-focus to next field on digit entry
+- ✅ Auto-focus to previous field on backspace
+- ✅ Paste support (auto-fills all 4 digits)
+- ✅ Numeric input only validation
+- ✅ "Resend" link with loading state
+- ✅ "Verify" button with hover effects
+- ✅ Success message display after verification
+- ✅ Error messaging
+- ✅ Dark mode support
+- ✅ Mobile-first responsive design
+
+#### Form Validation:
+- All 4 digits: Required
+- Input type: Numeric only (0-9)
+- Auto-validation on complete entry
+
+#### User Flow:
+1. User accesses page (typically from signup/forgot password - not linked yet)
+2. User enters 4-digit OTP code
+3. Auto-advances to next input field on digit entry
+4. Can paste full 4-digit code for quick entry
+5. If code not received, can click \"Resend\" button
+6. Client-side validation on submit
+7. Displays validation errors if any
+8. Shows success message upon successful verification
+9. Console logs OTP code (placeholder for actual API call)
+10. Can navigate to login page after success
+
+#### Smart Input Features:
+- **Auto-advance**: Automatically moves to next input when digit is entered
+- **Auto-backspace**: Moves to previous input when backspace pressed on empty field
+- **Paste handling**: Detects and auto-fills 4-digit codes from clipboard
+- **Number-only**: Only accepts numeric input (0-9)
+- **Visual feedback**: Focus states with primary color border
+
+#### Note:
+- Currently no direct navigation to this page (awaiting backend authentication flow)
+- Page structure is ready for integration with signup/forgot password flows
+- Direct URL access available for development/testing: `/auth/otp-verification`
+- Typically would be accessed after:
+  - User signs up (email/phone verification)
+  - User requests password reset (code verification)
 
 ---
 
@@ -467,6 +522,24 @@ All validation is currently client-side only (no backend integration).
 - [ ] Test dark mode toggle
 - [ ] Test responsive design on all viewports
 
+#### OTP Verification Page:
+- [ ] Navigate to `/auth/otp-verification` (direct URL for testing)
+- [ ] Verify logo links to homepage
+- [ ] Verify back button works (top-left)
+- [ ] Try entering single digits (should auto-advance to next input)
+- [ ] Try backspace on empty input (should move to previous input)
+- [ ] Try entering non-numeric characters (should be blocked)
+- [ ] Copy/paste 4-digit code (should auto-fill all inputs)
+- [ ] Try submitting incomplete OTP (should show error)
+- [ ] Click "Resend" link (should show loading state)
+- [ ] Enter complete valid OTP and submit (should show success message)
+- [ ] Click "Continue to Login" after success (should navigate to login)
+- [ ] Test dark mode toggle
+- [ ] Test on mobile viewport (320px, 375px, 414px)
+- [ ] Test on tablet viewport (768px)
+- [ ] Test on desktop viewport (1024px+)
+- [ ] Verify all 4 inputs are properly aligned and sized
+
 ### Test IDs for Automated Testing:
 All interactive elements have `data-testid` attributes:
 
@@ -498,6 +571,16 @@ All interactive elements have `data-testid` attributes:
 - `reset-password-confirm-input`
 - `password-match-error`
 - `reset-password-submit-button`
+- `go-to-login-button`
+
+**OTP Verification Page:**
+- `otp-input-0`
+- `otp-input-1`
+- `otp-input-2`
+- `otp-input-3`
+- `otp-error`
+- `resend-otp-button`
+- `otp-verify-button`
 - `go-to-login-button`
 
 ---
@@ -579,6 +662,7 @@ The implementation now includes a complete authentication flow (UI only):
 - ✅ **Signup** - New user registration
 - ✅ **Forgot Password** - Password recovery initiation
 - ✅ **Reset Password** - New password creation
+- ✅ **OTP Verification** - One-time password verification for email/phone
 
 All pages provide a solid foundation for future backend authentication integration while maintaining consistency with the Kuthakai brand and user experience.
 
@@ -597,6 +681,12 @@ All pages provide a solid foundation for future backend authentication integrati
    - Confirm password with match checking
    - Success message with login redirect
 
+3. **OTP Verification** (`/auth/otp-verification`)
+   - Smart 4-digit OTP input with auto-advance
+   - Paste support for quick entry
+   - Resend functionality with loading state
+   - Success message with login navigation
+
 ### Navigation Updates:
 - Login page "Forgot Password?" link now navigates to `/auth/forgot-password`
 - Complete auth flow navigation implemented (except reset password email link)
@@ -607,6 +697,7 @@ All pages provide a solid foundation for future backend authentication integrati
 - Consistent styling with existing auth pages
 - Reused existing components (Input, PasswordInput, AuthLayout)
 - Accessible with proper ARIA labels and data-testid attributes
+- Smart input handling for OTP (auto-advance, paste support, backspace navigation)
 
 ### Future Integration Ready:
 - Form validation patterns ready for backend API
@@ -626,5 +717,6 @@ For questions or issues related to this implementation:
    - `/auth/signup`
    - `/auth/forgot-password`
    - `/auth/reset-password`
+   - `/auth/otp-verification`
 
 **Last Updated**: January 2025
