@@ -1,15 +1,10 @@
-# Auth Pages Implementation Documentation
+# Auth Module
 
 ## Overview
 This document describes the implementation of Login and Sign Up pages for the Kuthakai platform, converted from the provided HTML reference files into proper Next.js App Router pages.
 
-## Implementation Date
-January 2025 (Initial Login/Signup)
-January 2025 (Forgot Password & Reset Password Added)
 
 ## Project Structure
-
-### New Files Created
 
 ```
 /app/src/
