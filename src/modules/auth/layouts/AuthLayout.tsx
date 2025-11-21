@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -30,11 +30,12 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
       <div className="flex w-full max-w-sm flex-col items-center">
         {/* Logo */}
         <Link href="/" className="pb-8 hover:opacity-80 transition-opacity" data-testid="auth-logo">
-          <svg fill="none" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="#f86b59"></path>
-            <path d="M24.7925 35.8337V24.887L34.1258 19.362L24.7925 13.927V2.98035L43.4592 13.927V24.887L24.7925 35.8337Z" fill="#FFFFFF"></path>
-            <path d="M4.54102 24.887V13.927L23.2077 2.98035V13.927L13.8744 19.362L23.2077 24.887V35.8337L4.54102 24.887Z" fill="#FFFFFF" fillOpacity="0.8"></path>
-          </svg>
+          <Image
+      src="/web-app-manifest-512x512.png"
+      width={50}
+      height={50}
+      alt="Picture of the author"
+    />
         </Link>
         
         {children}
