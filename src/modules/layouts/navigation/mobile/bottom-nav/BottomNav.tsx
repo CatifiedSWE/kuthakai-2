@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { mobileNavItems } from '@/demo';
 
@@ -12,7 +13,7 @@ export default function MobileBottomNav() {
         {mobileNavItems.map((item) => {
           const isActive = pathname === item.href;
           return (
-            <a
+            <Link
               key={item.id}
               href={item.href}
               className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-colors ${
@@ -27,7 +28,7 @@ export default function MobileBottomNav() {
               <span className={`text-xs ${isActive ? 'font-semibold' : 'font-medium'}`}>
                 {item.label}
               </span>
-            </a>
+            </Link>
           );
         })}
       </div>

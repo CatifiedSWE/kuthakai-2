@@ -4,3 +4,4 @@ export * from './stories';
 export * from './trust-features';
 export * from './navigation';
 export * from './locations';
+export * from './profile';

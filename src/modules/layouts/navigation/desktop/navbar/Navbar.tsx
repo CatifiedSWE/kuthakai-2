@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { desktopNavItems, guestMenuItems, userMenuItems, defaultLocation } from '@/demo';
 
@@ -17,7 +18,7 @@ export default function DesktopNavbar({ isLoggedIn = false }: DesktopNavbarProps
        <div className="w-full px-8 py-1.5">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <div className="flex items-center -ml-2">
+          <Link href="/" className="flex items-center -ml-2">
             <Image
               src="/logo/Kuthakai_Logo.png"
               alt="Kuthakai"
@@ -26,7 +27,7 @@ export default function DesktopNavbar({ isLoggedIn = false }: DesktopNavbarProps
               className="object-contain"
               style={{ height: 'auto', width: '140px' }}
             />
-          </div>
+          </Link>
 
           {/* Center Navigation - Guest */}
           {!isLoggedIn && (
@@ -57,6 +58,7 @@ export default function DesktopNavbar({ isLoggedIn = false }: DesktopNavbarProps
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+              aria-label="Toggle menu"
             >
               <span className="material-symbols-outlined text-[#181211] dark:text-white text-xl">
                 {isMenuOpen ? 'close' : 'menu'}
@@ -76,12 +78,13 @@ export default function DesktopNavbar({ isLoggedIn = false }: DesktopNavbarProps
                   {index === 2 && (
                     <div className="border-t border-gray-200 dark:border-white/10"></div>
                   )}
-                  <a
+                  <Link
                     href={item.href}
                     className="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-[#181211] dark:text-white font-medium"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </div>
               ))}
             </>
@@ -96,15 +99,19 @@ export default function DesktopNavbar({ isLoggedIn = false }: DesktopNavbarProps
                   {index === userMenuItems.length - 1 && (
                     <div className="border-t border-gray-200 dark:border-white/10"></div>
                   )}
-                  <a
+                  <Link
                     href={item.href}
                     className="block px-6 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-[#181211] dark:text-white"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </div>
               ))}
-              <button className="w-full text-left px-6 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-red-600 dark:text-red-400">
+              <button 
+                className="w-full text-left px-6 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-red-600 dark:text-red-400"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Logout
               </button>
             </>

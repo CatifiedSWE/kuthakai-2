@@ -82,10 +82,9 @@ This is a modular, scalable Next.js application for the Kuthakai peer-to-peer re
 │   │   │       └── page.tsx          # kuthakai_in-app_chat_screen
 │   │   │
 │   │   ├── (profile)/                # Profile route group
-│   │   │   ├── index/
-│   │   │   │   └── page.tsx          # kuthakai_user_profile_screen
+│   │   │   ├── page.tsx              # kuthakai_user_profile_screen (/profile)
 │   │   │   └── settings/
-│   │   │       └── page.tsx          # kuthakai_settings_screen
+│   │   │       └── page.tsx          # kuthakai_settings_screen (/profile/settings)
 │   │   │
 │   │   ├── (legal)/                  # Legal route group
 │   │   │   ├── about-us/
