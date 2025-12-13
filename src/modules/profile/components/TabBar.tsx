@@ -19,19 +19,19 @@ const tabs: Tab[] = [
 
 export default function TabBar({ activeTab, onTabChange }: TabBarProps) {
   return (
-    <div className="pb-3 sticky top-[68px] z-10 bg-background-light dark:bg-background-dark">
-      <div className="flex border-b border-[#e6dcdb] dark:border-gray-700 px-4 justify-between">
+    <div className="pb-3 md:pb-6 sticky top-[68px] z-10 bg-background-light dark:bg-background-dark">
+      <div className="flex border-b border-[#e6dcdb] dark:border-gray-700 px-4 md:px-8 gap-2 md:gap-8 max-w-7xl mx-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex flex-col items-center justify-center border-b-[3px] pb-[13px] pt-4 flex-1 transition-colors ${
+            className={`flex flex-col items-center justify-center border-b-[3px] pb-3 md:pb-4 pt-4 md:pt-6 px-2 md:px-4 transition-all duration-200 ${
               activeTab === tab.id
                 ? 'border-b-primary text-primary'
                 : 'border-b-transparent text-[#8a6560] dark:text-gray-400 hover:text-primary dark:hover:text-primary'
             }`}
           >
-            <p className="text-sm font-bold leading-normal tracking-[0.015em]">{tab.label}</p>
+            <p className="text-sm md:text-base font-bold leading-normal tracking-[0.015em] whitespace-nowrap">{tab.label}</p>
           </button>
         ))}
       </div>

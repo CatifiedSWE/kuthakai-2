@@ -20,28 +20,30 @@ export default function ProfileContent({ items, onItemClick }: ProfileContentPro
   });
 
   return (
-    <>
+    <div className="w-full max-w-7xl mx-auto">
       <TabBar activeTab={activeTab} onTabChange={setActiveTab} />
       
-      <div className="flex flex-col px-4 gap-4 pb-24">
+      <div className="px-4 md:px-8 pb-24">
         {filteredItems.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-[#8a6560] dark:text-gray-400 text-base">
+          <div className="text-center py-12 md:py-20">
+            <p className="text-[#8a6560] dark:text-gray-400 text-base md:text-lg">
               {activeTab === 'listed' 
                 ? 'No listed items yet' 
                 : 'No rented items yet'}
             </p>
           </div>
         ) : (
-          filteredItems.map((item) => (
-            <ItemCard 
-              key={item.id} 
-              item={item} 
-              onClick={() => onItemClick?.(item)}
-            />
-          ))
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {filteredItems.map((item) => (
+              <ItemCard 
+                key={item.id} 
+                item={item} 
+                onClick={() => onItemClick?.(item)}
+              />
+            ))}
+          </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
