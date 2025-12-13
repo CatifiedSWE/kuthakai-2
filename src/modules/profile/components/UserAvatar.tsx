@@ -14,7 +14,7 @@ const sizeClasses = {
 export default function UserAvatar({ imageUrl, alt, size = 'lg' }: UserAvatarProps) {
   return (
     <div
-      className={`bg-center bg-no-repeat aspect-square bg-cover rounded-full shadow-lg ring-4 ring-white dark:ring-gray-700 ${sizeClasses[size]}`}
+      className={`bg-center bg-no-repeat aspect-square bg-cover rounded-full md:shadow-lg md:ring-4 md:ring-white md:dark:ring-gray-700 ${sizeClasses[size]}`}
       style={{ backgroundImage: `url("${imageUrl}")` }}
       role="img"
       aria-label={alt}
