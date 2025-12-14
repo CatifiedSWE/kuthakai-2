@@ -7,3 +7,5 @@ export * from './locations';
 export * from './profile';
 export * from './team-members';
 export * from './community-posts';
+export * from './bookings';
+export * from './support';
