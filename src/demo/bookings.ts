@@ -1,4 +1,4 @@
-import { BookingData, PaymentOption } from '@/modules/listings';
+import { BookingData, PaymentOption, DamageClaimData } from '@/modules/listings';
 
 export const demoBooking: BookingData = {
   item: {
@@ -41,3 +41,24 @@ export const demoPaymentOptions: PaymentOption[] = [
     icon: 'account_balance',
   },
 ];
+
+export const demoDamageClaim: DamageClaimData = {
+  rentalInfo: {
+    itemName: 'Vintage Leather Jacket',
+    renterName: 'Alex Doe',
+    rentalDates: 'Oct 24, 2023 - Oct 28, 2023',
+  },
+  description: '',
+  photos: [
+    {
+      id: 'photo-1',
+      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA8r0uYtlbmXhcI4vGgyobV_q4JZpQ6LARhEGU5sJoG0e9Z_PXTv2jYZHYsg0hZaCs2spO5Fo5eIKMYZSJKhE_P-98EDYt_IBsRqfaNMMgNHcyP6JGc-KNCyVMn0TrADdeY-L5KmLCocfJvv4S7YmCfC1ySW4wODK4488zF8RzTkIjcepQ2QAlY8BYHLIBU-BJjikTW9hDGWQQ5AJD_TuByGFgcMysJX8_f08SK9RZVmihSXiEbA-1MCsmyaiVGVxmzEPG3n5w04WUU',
+      alt: 'Close-up of a tear on a leather jacket sleeve',
+    },
+    {
+      id: 'photo-2',
+      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDI3Gl94W5g54UwupmMpGnHQk3nVHJzC4qdYu3t66WpM-7IPnD47PLR-v_kUd6M5ReKK8dEn8lZqsARghcGtiV3q1Xgm4gM8yWvvsiS7nQ2Ukx05KV3uEXvhE7qAhaL4QGFHOPjdj6bmTuDmkUGOOVolWaGOq9NWH50PHfreK0l_SSKTXelsLi_s4HWwlll3i9RIw2DhmAFCdKjTHhu9MUX1iuqDR43LwmcXbz8QSaqC_yg5wrv3zRmnZMzV6PiLQrZj6th1TCYxOfM',
+      alt: 'A broken zipper on a dark leather jacket',
+    },
+  ],
+};
