@@ -36,3 +36,32 @@ export interface PrivacyPolicyContent {
     email: string;
   };
 }
+
+// Prohibited Items Types
+export interface ProhibitedItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+// Rental Agreement Types
+export interface RentalSummary {
+  itemName: string;
+  itemImage: string;
+  owner: string;
+  renter: string;
+  rentalPeriod: string;
+  totalCost: string;
+}
+
+export interface RentalAgreementContent {
+  summary: RentalSummary;
+  agreementText: AgreementSection[];
+}
+
+export interface AgreementSection {
+  id: string;
+  title: string;
+  content: string;
+}

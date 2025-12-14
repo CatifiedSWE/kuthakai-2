@@ -13,6 +13,9 @@ This module contains all legal and compliance-related screens and components for
 │   ├── TeamMember.tsx      # Team member profile card
 │   ├── TeamScroll.tsx      # Horizontal scrolling team section
 │   ├── ToggleSwitch.tsx    # Toggle switch component
+│   ├── ProhibitedItemCard.tsx  # Prohibited item card
+│   ├── RentalSummary.tsx   # Rental agreement summary
+│   ├── SignatureCanvas.tsx # Digital signature canvas
 │   └── index.ts            # Barrel export
 │
 ├── about-us/                # About Us screen
@@ -21,6 +24,18 @@ This module contains all legal and compliance-related screens and components for
 │
 ├── insurance-guarantee-screen/  # Insurance & Guarantee screen
 │   ├── InsuranceGuaranteeScreen.tsx
+│   └── index.ts
+│
+├── privacy-policy-screen/   # Privacy Policy screen
+│   ├── PrivacyPolicyScreen.tsx
+│   └── index.ts
+│
+├── prohibited-items-screen/ # Prohibited Items screen
+│   ├── ProhibitedItemsScreen.tsx
+│   └── index.ts
+│
+├── rental-agreement-screen/ # Rental Agreement screen
+│   ├── RentalAgreementScreen.tsx
 │   └── index.ts
 │
 ├── types.ts                 # TypeScript interfaces
@@ -48,6 +63,34 @@ Shows available protection options and insurance coverage details.
 **Components used**:
 - `GuaranteeCard` - Individual protection option cards
 - `ToggleSwitch` - Enable/disable coverage options
+
+### Privacy Policy Screen
+**Route**: `/privacy-policy`
+
+Displays the platform's privacy policy with sections for data collection, usage, and user rights.
+
+**Components used**:
+- Standard text sections with proper formatting
+
+### Prohibited Items Screen
+**Route**: `/prohibited-items`
+
+Lists all items prohibited from rental on the platform with detailed descriptions.
+
+**Components used**:
+- `ProhibitedItemCard` - Individual prohibited item cards with icons
+- Report button for flagging suspicious listings
+
+### Rental Agreement Screen
+**Route**: `/rental-agreement` (under listings)
+
+Interactive screen for reviewing and signing rental agreements.
+
+**Components used**:
+- `RentalSummary` - Displays rental details (item, owner, renter, dates, cost)
+- `SignatureCanvas` - Digital signature pad for agreement signing
+- Agreement text scrollable section
+- Confirmation checkbox
 
 ## 📦 Components
 
@@ -112,6 +155,51 @@ import { ToggleSwitch } from '@/modules/legal';
 />
 ```
 
+### ProhibitedItemCard
+Card displaying a prohibited item with icon and description.
+
+```tsx
+import { ProhibitedItemCard } from '@/modules/legal';
+
+<ProhibitedItemCard
+  item={{
+    id: 'weapons',
+    title: 'Weapons & Ammunition',
+    description: 'Firearms, firearm parts...',
+    icon: 'shield'
+  }}
+/>
+```
+
+### RentalSummary
+Displays rental agreement summary with item details and cost breakdown.
+
+```tsx
+import { RentalSummary } from '@/modules/legal';
+
+<RentalSummary
+  summary={{
+    itemName: 'GoPro HERO10 Black',
+    itemImage: '...',
+    owner: 'Jane Doe',
+    renter: 'John Smith',
+    rentalPeriod: 'Sep 15 - Sep 22, 2024',
+    totalCost: '$150.00'
+  }}
+/>
+```
+
+### SignatureCanvas
+Interactive canvas for digital signature capture.
+
+```tsx
+import { SignatureCanvas } from '@/modules/legal';
+
+<SignatureCanvas
+  onSignatureChange={(isEmpty) => console.log('Has signature:', !isEmpty)}
+/>
+```
+
 ## 🔧 Types
 
 ### TeamMember
@@ -136,19 +224,72 @@ interface GuaranteeOption {
 }
 ```
 
+### ProhibitedItem
+```typescript
+interface ProhibitedItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+```
+
+### RentalSummary
+```typescript
+interface RentalSummary {
+  itemName: string;
+  itemImage: string;
+  owner: string;
+  renter: string;
+  rentalPeriod: string;
+  totalCost: string;
+}
+```
+
+### RentalAgreementContent
+```typescript
+interface RentalAgreementContent {
+  summary: RentalSummary;
+  agreementText: AgreementSection[];
+}
+
+interface AgreementSection {
+  id: string;
+  title: string;
+  content: string;
+}
+```
+
 ## 📝 Usage
 
 Import screens and components from the module:
 
 ```typescript
 // Import screens
-import { AboutUsScreen, InsuranceGuaranteeScreen } from '@/modules/legal';
+import { 
+  AboutUsScreen, 
+  InsuranceGuaranteeScreen,
+  PrivacyPolicyScreen,
+  ProhibitedItemsScreen,
+  RentalAgreementScreen
+} from '@/modules/legal';
 
 // Import components
-import { GuaranteeCard, TeamMember } from '@/modules/legal';
+import { 
+  GuaranteeCard, 
+  TeamMember,
+  ProhibitedItemCard,
+  RentalSummary,
+  SignatureCanvas
+} from '@/modules/legal';
 
 // Import types
-import { TeamMember, GuaranteeOption } from '@/modules/legal';
+import { 
+  TeamMember, 
+  GuaranteeOption,
+  ProhibitedItem,
+  RentalAgreementContent
+} from '@/modules/legal';
 ```
 
 ## 🎨 Design Principles
@@ -164,7 +305,12 @@ Demo data is available in `/src/demo/legal.ts` and `/src/demo/team-members.ts`:
 
 ```typescript
 import { demoTeamMembers } from '@/demo/team-members';
-import { demoGuaranteeOptions } from '@/demo/legal';
+import { 
+  demoGuaranteeOptions,
+  demoPrivacyPolicyContent,
+  demoProhibitedItems,
+  demoRentalAgreement
+} from '@/demo/legal';
 ```
 
 ## 📍 Routes
@@ -173,9 +319,10 @@ The legal module screens are accessible via these routes:
 
 - `/about-us` - About Us page
 - `/insurance-and-guarantee` - Insurance & Guarantee page
+- `/privacy-policy` - Privacy Policy page
+- `/prohibited-items` - Prohibited Items List page
+- `/rental-agreement` - Rental Agreement signing page (under listings group)
 - `/terms-of-service` - Terms of Service (if implemented)
-- `/privacy-policy` - Privacy Policy (if implemented)
-- `/prohibited-items` - Prohibited Items List (if implemented)
 
 ## 🚀 Adding New Legal Screens
 

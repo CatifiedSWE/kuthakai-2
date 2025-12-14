@@ -1,4 +1,4 @@
-import { GuaranteeOption, PrivacyPolicyContent } from '@/modules/legal';
+import { GuaranteeOption, PrivacyPolicyContent, ProhibitedItem, RentalAgreementContent } from '@/modules/legal';
 
 export const demoGuaranteeOptions: GuaranteeOption[] = [
   {
@@ -64,3 +64,92 @@ export const demoPrivacyPolicyContent: PrivacyPolicyContent = {
     email: 'privacy@kuthakai.com',
   },
 };
+
+export const demoProhibitedItems: ProhibitedItem[] = [
+  {
+    id: 'illegal-items',
+    title: 'Illegal Items & Regulated Goods',
+    description: 'Includes any item that is illegal to own or trade in your jurisdiction.',
+    icon: 'gavel',
+  },
+  {
+    id: 'weapons',
+    title: 'Weapons, Ammunition & Explosives',
+    description: 'Firearms, firearm parts, ammunition, explosives, and certain types of knives.',
+    icon: 'shield',
+  },
+  {
+    id: 'hazardous',
+    title: 'Hazardous Materials',
+    description: 'Includes flammable, explosive, corrosive, or poisonous materials.',
+    icon: 'science',
+  },
+  {
+    id: 'adult-content',
+    title: 'Adult Content & Obscene Material',
+    description: 'Pornographic materials and items that are obscene or sexually suggestive.',
+    icon: 'no_adult_content',
+  },
+  {
+    id: 'counterfeit',
+    title: 'Counterfeit or Unauthorized Goods',
+    description: 'Items that infringe on copyright or trademarks, such as replicas or fakes.',
+    icon: 'copyright',
+  },
+  {
+    id: 'live-animals',
+    title: 'Live Animals',
+    description: 'The rental of live animals is strictly prohibited for safety and welfare reasons.',
+    icon: 'pets',
+  },
+  {
+    id: 'recalled',
+    title: 'Recalled Items',
+    description: 'Any item that has been officially recalled by a manufacturer or government agency.',
+    icon: 'dangerous',
+  },
+];
+
+export const demoRentalAgreement: RentalAgreementContent = {
+  summary: {
+    itemName: 'GoPro HERO10 Black',
+    itemImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAsS0fY6V7TT0eiemt6NYetskwSVNxyl48mOixSj6o6aB2ZUK2dpaF7ZlTjFFAmv6-eHvSOKA8acxZ4TqgJ2eQOnZHbLM933a0PC1Qwk-AGuQq6rk5ehQghciFmxjExc4be_5kWelB7SOysZzZoSZUD3QJpVHxOXxWSQvLGOl74tR7eD2HjIUyS8g-3tGKwdr4lHCW58HoM6aQY4ghsY3Tuap67wc78TkRJmzJ9p59L1YWVQiUVd1Qh9pZERJMkIIEJU4cWZX7M-vcd',
+    owner: 'Jane Doe',
+    renter: 'John Smith',
+    rentalPeriod: 'Sep 15 - Sep 22, 2024',
+    totalCost: '$150.00',
+  },
+  agreementText: [
+    {
+      id: 'introduction',
+      title: 'Introduction/Parties Involved',
+      content: "This Rental Agreement ('Agreement') is made between Jane Doe ('Owner') and John Smith ('Renter').",
+    },
+    {
+      id: 'terms',
+      title: 'Terms of Use',
+      content: 'The Renter agrees to use the equipment in a careful and proper manner and will comply with all applicable laws and regulations.',
+    },
+    {
+      id: 'payment',
+      title: 'Payment and Fees',
+      content: 'The Renter agrees to pay the total rental fee of $150.00 upon signing this agreement.',
+    },
+    {
+      id: 'responsibilities',
+      title: 'Responsibilities of Renter/Owner',
+      content: 'The Owner confirms the item is in good working condition. The Renter is responsible for returning the item in the same condition.',
+    },
+    {
+      id: 'liability',
+      title: 'Liability and Damages Clause',
+      content: 'The Renter is liable for any damage, loss, or theft of the equipment during the rental period.',
+    },
+    {
+      id: 'cancellation',
+      title: 'Cancellation Policy',
+      content: 'Cancellations made within 48 hours of the rental start date are non-refundable.',
+    },
+  ],
+};
+
