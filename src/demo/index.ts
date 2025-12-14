@@ -16,3 +16,5 @@ export * from './chat';
 export * from './legal';
 export * from './my-listings';
 export * from './leaderboard';
+export * from './onboarding';
+export * from './rentals';

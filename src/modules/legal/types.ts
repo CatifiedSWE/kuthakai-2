@@ -15,3 +15,24 @@ export interface GuaranteeOption {
   hasToggle?: boolean;
   defaultEnabled?: boolean;
 }
+
+// Privacy Policy Types
+export interface PrivacyPolicySection {
+  id: string;
+  heading: string;
+  subheading?: string;
+  content: string;
+  items?: string[];
+}
+
+export interface PrivacyPolicyContent {
+  title: string;
+  lastUpdated: string;
+  introduction: string;
+  sections: PrivacyPolicySection[];
+  contact: {
+    heading: string;
+    text: string;
+    email: string;
+  };
+}
