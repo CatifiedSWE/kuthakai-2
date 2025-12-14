@@ -1,10 +1,31 @@
+"use client";
+
+import { FAQHelpCenterScreen } from '@/modules/support';
+import { demoFAQCategories } from '@/demo/support';
+import { useRouter } from 'next/navigation';
+
 export default function Page() {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
+  const handleCategoryClick = (categoryId: string) => {
+    console.log('Category clicked:', categoryId);
+    // Navigate to specific FAQ category or show details
+  };
+
+  const handleContactSupport = () => {
+    router.push('/contact-support');
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
+    <FAQHelpCenterScreen
+      categories={demoFAQCategories}
+      onBack={handleBack}
+      onCategoryClick={handleCategoryClick}
+      onContactSupport={handleContactSupport}
+    />
   );
 }

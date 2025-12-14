@@ -1,6 +1,6 @@
 # Support Module
 
-Handles customer support and contact functionality.
+Handles customer support, FAQ, and contact functionality.
 
 ## Structure
 
@@ -10,9 +10,14 @@ support/
 │   ├── SupportOptionCard.tsx       # Reusable support option card
 │   ├── EmergencyCard.tsx          # Emergency support CTA
 │   ├── BottomNavigation.tsx       # Bottom nav bar
+│   ├── FAQCategoryCard.tsx        # FAQ category card
+│   ├── SearchBar.tsx              # Search input component
 │   └── index.ts                   # Barrel export
 ├── contact-support-screen/
 │   ├── ContactSupportScreen.tsx   # Main support screen
+│   └── index.ts                   # Barrel export
+├── faq-help-center-screen/
+│   ├── FAQHelpCenterScreen.tsx    # FAQ & Help Center screen
 │   └── index.ts                   # Barrel export
 ├── types.ts                       # TypeScript interfaces
 ├── index.ts                       # Main module export

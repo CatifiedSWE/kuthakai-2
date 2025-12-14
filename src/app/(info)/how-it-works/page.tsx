@@ -1,10 +1,31 @@
+"use client";
+
+import { HowItWorksScreen } from '@/modules/info';
+import { demoRenterSteps, demoOwnerSteps } from '@/demo/info';
+import { useRouter } from 'next/navigation';
+
 export default function Page() {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
+  const handleStartAction = (userType: string) => {
+    console.log('Start action:', userType);
+    if (userType === 'For Renters') {
+      router.push('/explore');
+    } else {
+      router.push('/list-item');
+    }
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
+    <HowItWorksScreen
+      renterSteps={demoRenterSteps}
+      ownerSteps={demoOwnerSteps}
+      onBack={handleBack}
+      onStartAction={handleStartAction}
+    />
   );
 }

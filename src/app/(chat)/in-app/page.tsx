@@ -1,10 +1,27 @@
+"use client";
+
+import { ChatScreen } from '@/modules/chat';
+import { demoChatConversation } from '@/demo/chat';
+import { useRouter } from 'next/navigation';
+
 export default function Page() {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
+  const handleSendMessage = (message: string) => {
+    console.log('Message sent:', message);
+    // Handle sending message to backend
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
+    <ChatScreen
+      conversation={demoChatConversation}
+      onBack={handleBack}
+      onSendMessage={handleSendMessage}
+      showTyping={true}
+    />
   );
 }

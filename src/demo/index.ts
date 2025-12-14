@@ -11,3 +11,6 @@ export * from './bookings';
 export * from './support';
 export * from './dashboard';
 export * from './explore';
+export * from './info';
+export * from './chat';
+export * from './legal';

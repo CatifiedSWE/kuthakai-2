@@ -13,3 +13,10 @@ export interface EmergencySupport {
   description: string;
   phoneNumber: string;
 }
+
+export interface FAQCategory {
+  id: string;
+  title: string;
+  icon: string;
+  link: string;
+}

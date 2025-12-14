@@ -6,3 +6,12 @@ export interface TeamMember {
   role: string;
   avatar: string;
 }
+
+export interface GuaranteeOption {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  hasToggle?: boolean;
+  defaultEnabled?: boolean;
+}
