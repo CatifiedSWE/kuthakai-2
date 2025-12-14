@@ -19,3 +19,26 @@ export interface RentalItem {
 }
 
 export type TabType = 'listed' | 'rented';
+
+// KYC Verification Types
+export type DocumentStatus = 'pending' | 'uploaded' | 'verified' | 'rejected';
+export type VerificationStep = 'aadhaar' | 'pan' | 'selfie';
+
+export interface KYCDocument {
+  id: string;
+  type: 'aadhaar-front' | 'aadhaar-back' | 'pan' | 'selfie';
+  title: string;
+  description: string;
+  icon: string;
+  status: DocumentStatus;
+  uploadedImage?: string;
+  uploadedAt?: string;
+}
+
+export interface KYCVerificationData {
+  currentStep: number;
+  totalSteps: number;
+  stepName: string;
+  documents: KYCDocument[];
+  canSubmit: boolean;
+}

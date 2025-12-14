@@ -1,4 +1,4 @@
-import { UserProfile, RentalItem } from '@/modules/profile/types';
+import { UserProfile, RentalItem, KYCVerificationData } from '@/modules/profile/types';
 
 export const demoUser: UserProfile = {
   id: '1',
@@ -64,3 +64,47 @@ export const demoProfileItems: RentalItem[] = [
     category: 'Electronics',
   },
 ];
+
+// KYC Verification Demo Data
+export const demoKYCVerification: KYCVerificationData = {
+  currentStep: 1,
+  totalSteps: 3,
+  stepName: 'Government ID',
+  canSubmit: false,
+  documents: [
+    {
+      id: 'aadhaar-front',
+      type: 'aadhaar-front',
+      title: 'Upload Front Side',
+      description: 'Ensure good lighting, no glare.',
+      icon: 'upload_file',
+      status: 'pending',
+    },
+    {
+      id: 'aadhaar-back',
+      type: 'aadhaar-back',
+      title: 'Upload Back Side',
+      description: 'Ensure good lighting, no glare.',
+      icon: 'upload_file',
+      status: 'uploaded',
+      uploadedImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDBl1LVbhkH9EPIpElVfWcmj5UvIjLoKVxbTseesDJ1i6vwZctyaVMs4LZfiQQAP7XhtOOUvEzRDrEy1zu0rcrocQ3SUMuVxbnzuOuTCPRrmZBih3_tQRdD_DcKPBO93Rng2oUnuxlYqAc3yEWQcYCABMiTJjvCU5p7qyd-OEyikbg5pkbz1FQzrqHUfnDHPe82UNeo7ReFMIaTfvoAX_Z2LLFWpJ3plQaS6VGtC4Yr4-MGgXTR_HUuhb6Gdvi1JgzlwPQ4N4y88_8t',
+      uploadedAt: '2024-01-20T10:30:00Z',
+    },
+    {
+      id: 'pan',
+      type: 'pan',
+      title: 'Upload PAN Card',
+      description: 'JPG or PNG format.',
+      icon: 'id_card',
+      status: 'pending',
+    },
+    {
+      id: 'selfie',
+      type: 'selfie',
+      title: 'Take a Selfie',
+      description: 'Look directly into the camera.',
+      icon: 'photo_camera',
+      status: 'pending',
+    },
+  ],
+};

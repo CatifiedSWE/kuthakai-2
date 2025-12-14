@@ -1,114 +1,252 @@
 # Listings Module
 
-Handles rental booking and checkout functionality.
+This module handles all listing and rental-related functionality including item details, booking checkout, and damage claims.
 
-## Structure
+## 📁 Structure
 
 ```
-listings/
-├── components/
-│   ├── RentalSummaryCard.tsx       # Displays rental item summary
-│   ├── PriceDetailsSection.tsx     # Shows price breakdown
-│   ├── PaymentMethodSelector.tsx   # Payment method selection UI
-│   ├── SecurePaymentFooter.tsx     # Fixed bottom CTA with security message
-│   └── index.ts                    # Barrel export
-├── booking-checkout-screen/
-│   ├── BookingCheckoutScreen.tsx   # Main checkout screen
-│   └── index.ts                    # Barrel export
-├── types.ts                        # TypeScript interfaces
-├── index.ts                        # Main module export
+/src/modules/listings/
+├── components/                      # Reusable UI components
+│   ├── ItemImageCarousel.tsx        # Image gallery with indicators
+│   ├── OwnerCard.tsx                # Owner profile display
+│   ├── LocationCard.tsx             # Location with map
+│   ├── ReviewCard.tsx               # Individual review
+│   ├── ReviewsList.tsx              # Reviews section
+│   ├── PaymentMethodSelector.tsx    # Payment options
+│   ├── PriceDetailsSection.tsx      # Price breakdown
+│   ├── RentalSummaryCard.tsx        # Booking summary
+│   ├── PhotoGallery.tsx             # Photo upload gallery
+│   ├── DamageDescriptionInput.tsx   # Damage report input
+│   ├── DamageDetailsDisplay.tsx     # Damage info display
+│   ├── SecurePaymentFooter.tsx      # Payment CTA footer
+│   └── index.ts                     # Barrel export
+│
+├── item-details-screen/             # Item details page
+│   ├── ItemDetailsScreen.tsx
+│   └── index.ts
+│
+├── booking-checkout-screen/         # Checkout flow
+│   ├── BookingCheckoutScreen.tsx
+│   └── index.ts
+│
+├── damage-claim-screen/             # Damage reporting
+│   ├── DamageClaimScreen.tsx
+│   └── index.ts
+│
+├── types.ts                         # TypeScript interfaces
+├── damage-claim-types.ts            # Damage claim specific types
+├── index.ts                         # Main barrel export
 └── README.md                       # This file
 ```
 
-## Components
+## 🎯 Screens
 
-### RentalSummaryCard
-Displays rental item with image, name, and booking dates.
+### Item Details Screen
+**Route**: `/item-details`
 
-**Props:**
-- `item: RentalItem` - Item details
-- `dates: BookingDates` - Booking date information
+Displays comprehensive information about a rental item including images, description, owner details, location, and reviews.
 
-### PriceDetailsSection
-Shows detailed price breakdown with rental fee, deposit, service fee, and total.
+**Features**:
+- Image carousel with multiple photos
+- Item name, description, and daily price
+- Owner profile with rating
+- Location with map
+- User reviews
+- "Rent Now" CTA button
 
-**Props:**
-- `pricing: PriceBreakdown` - Price details
+**Navigation**:
+- Back button → `/explore`
+- Share button → Native share or clipboard
+- Rent Now button → `/booking-checkout`
 
-### PaymentMethodSelector
-Interactive payment method selection with radio buttons.
+### Booking Checkout Screen
+**Route**: `/booking-checkout`
 
-**Props:**
-- `options: PaymentOption[]` - Available payment methods
-- `selectedMethod: PaymentMethod` - Currently selected method
-- `onSelect: (method) => void` - Selection handler
+Handles the rental booking and payment process.
 
-**Features:**
-- Visual feedback for selected state
-- Hover effects
-- Smooth transitions
+### Damage Claim Screen
+**Route**: `/damage-claim`
 
-### SecurePaymentFooter
-Fixed bottom bar with security message and payment confirmation button.
+Allows users to report damage to rented items.
 
-**Props:**
-- `totalAmount: number` - Total payment amount
-- `onConfirmPayment: () => void` - Payment handler
-- `isProcessing?: boolean` - Loading state
+## 📦 Components
 
-**Features:**
-- Loading spinner during processing
-- Disabled state management
-- Active scale animation
-
-### BookingCheckoutScreen
-Main screen composing all checkout components.
-
-**Props:**
-- `bookingData: BookingData` - Complete booking information
-- `paymentOptions: PaymentOption[]` - Available payment methods
-- `onBack?: () => void` - Back navigation handler
-
-**Features:**
-- Payment method state management
-- Payment processing simulation
-- Success toast notification
-- Smooth animations
-- Mobile-first responsive design
-
-## Usage
+### ItemImageCarousel
+Swipeable image carousel with dot indicators.
 
 ```tsx
-import { BookingCheckoutScreen } from '@/modules/listings';
-import { demoBooking, demoPaymentOptions } from '@/demo';
+import { ItemImageCarousel } from '@/modules/listings';
 
-export default function Page() {
-  return (
-    <BookingCheckoutScreen
-      bookingData={demoBooking}
-      paymentOptions={demoPaymentOptions}
-    />
-  );
+<ItemImageCarousel
+  images={[
+    { id: '1', url: '...', alt: 'Camera front view' },
+    { id: '2', url: '...', alt: 'Camera side view' }
+  ]}
+  itemName="Canon EOS R5"
+/>
+```
+
+### OwnerCard
+Displays item owner information with rating and review count.
+
+```tsx
+import { OwnerCard } from '@/modules/listings';
+
+<OwnerCard
+  owner={{
+    id: 'user-1',
+    name: 'Alex Doe',
+    avatar: '...',
+    rating: 4.8,
+    reviewCount: 15
+  }}
+  onViewProfile={() => console.log('View profile')}
+/>
+```
+
+### LocationCard
+Shows location with map image and address.
+
+```tsx
+import { LocationCard } from '@/modules/listings';
+
+<LocationCard
+  location={{
+    address: 'Koramangala, Bengaluru',
+    city: 'Bengaluru',
+    mapImage: '...',
+    mapAlt: 'Map showing location'
+  }}
+/>
+```
+
+### ReviewCard
+Individual review with user avatar, name, rating, and comment.
+
+```tsx
+import { ReviewCard } from '@/modules/listings';
+
+<ReviewCard
+  review={{
+    id: 'review-1',
+    userId: 'user-2',
+    userName: 'Jane Smith',
+    userAvatar: '...',
+    rating: 5,
+    comment: 'Great camera!',
+    date: '2024-01-15'
+  }}
+/>
+```
+
+### ReviewsList
+Reviews section with "See all" link.
+
+```tsx
+import { ReviewsList } from '@/modules/listings';
+
+<ReviewsList
+  reviews={reviewsArray}
+  onSeeAll={() => console.log('See all reviews')}
+/>
+```
+
+## 🔧 Types
+
+### ItemDetails
+```typescript
+interface ItemDetails {
+  id: string;
+  name: string;
+  description: string;
+  pricePerDay: number;
+  images: ItemImage[];
+  owner: ItemOwner;
+  location: ItemLocation;
+  reviews: ItemReview[];
+  category?: string;
 }
 ```
 
-## Types
+### ItemOwner
+```typescript
+interface ItemOwner {
+  id: string;
+  name: string;
+  avatar: string;
+  rating: number;
+  reviewCount: number;
+}
+```
+
+### ItemReview
+```typescript
+interface ItemReview {
+  id: string;
+  userId: string;
+  userName: string;
+  userAvatar: string;
+  rating: number;
+  comment: string;
+  date: string;
+}
+```
+
+### ItemLocation
+```typescript
+interface ItemLocation {
+  address: string;
+  city: string;
+  mapImage: string;
+  mapAlt: string;
+}
+```
+
+### ItemImage
+```typescript
+interface ItemImage {
+  id: string;
+  url: string;
+  alt: string;
+}
+```
+
+## 📝 Usage
 
 ```typescript
-interface BookingData {
-  item: RentalItem;
-  dates: BookingDates;
-  pricing: PriceBreakdown;
-}
+// Import screens
+import { ItemDetailsScreen } from '@/modules/listings';
 
-type PaymentMethod = 'upi' | 'card' | 'netbanking';
+// Import components
+import { ItemImageCarousel, OwnerCard, ReviewsList } from '@/modules/listings';
+
+// Import types
+import { ItemDetails, ItemOwner, ItemReview } from '@/modules/listings';
 ```
 
-## Interactive Features
+## 🔄 Demo Data
 
-- ✅ Payment method selection with visual feedback
-- ✅ Payment processing with loading state
-- ✅ Success notification toast
-- ✅ Smooth animations and transitions
-- ✅ Hover effects on interactive elements
-- ✅ Mobile-optimized touch targets
+Demo data is available in `/src/demo/items.ts`:
+
+```typescript
+import { demoItemDetails, demoItems } from '@/demo/items';
+```
+
+## 🎨 Design Principles
+
+1. **Mobile-First**: Optimized for mobile with responsive desktop layouts
+2. **Dark Mode**: Full dark mode support
+3. **Interactive**: Smooth transitions and hover states
+4. **Accessibility**: Proper test IDs, ARIA labels, and semantic HTML
+5. **Performance**: Optimized images and lazy loading
+
+## 📍 Test IDs
+
+All components include `data-testid` attributes for testing:
+
+- `item-details-app-bar` - Top navigation bar
+- `item-image-carousel` - Image carousel container
+- `owner-card` - Owner information card
+- `location-card` - Location section
+- `reviews-list` - Reviews container
+- `rent-now-button` - Primary CTA button
