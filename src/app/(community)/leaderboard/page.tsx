@@ -1,10 +1,25 @@
+import { LeaderboardScreen } from '@/modules/community';
+import { demoLeaderboardUsers } from '@/demo';
+
+export const metadata = {
+  title: 'Leaderboard - Kuthakai',
+  description: 'Top renters on Kuthakai',
+};
+
 export default function Page() {
+  const handleCityFilter = () => {
+    console.log('Filter by city clicked');
+  };
+
+  const handleCollegeFilter = () => {
+    console.log('Filter by college clicked');
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
+    <LeaderboardScreen
+      users={demoLeaderboardUsers}
+      onCityFilterClick={handleCityFilter}
+      onCollegeFilterClick={handleCollegeFilter}
+    />
   );
 }

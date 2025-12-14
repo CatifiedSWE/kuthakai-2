@@ -79,3 +79,29 @@ export interface ItemDetails {
   reviews: ItemReview[];
   category?: string;
 }
+
+// My Listings Types
+export type ListingStatus = 'available' | 'rented' | 'pending';
+
+export interface MyListingItem {
+  id: string;
+  title: string;
+  price: string;
+  imageUrl: string;
+  imageAlt: string;
+  status: ListingStatus;
+}
+
+// List Item Form Types
+export interface ListItemFormData {
+  photos: File[];
+  title: string;
+  category: string;
+  description: string;
+  pricePerDay: number;
+}
+
+export interface ListItemStep {
+  currentStep: number;
+  totalSteps: number;
+}

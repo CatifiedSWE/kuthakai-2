@@ -33,6 +33,14 @@ This module handles all listing and rental-related functionality including item 
 │   ├── DamageClaimScreen.tsx
 │   └── index.ts
 │
+├── my-listings-screen/              # User's listings
+│   ├── MyListingsScreen.tsx
+│   └── index.ts
+│
+├── list-item-screen/                # List new item form
+│   ├── ListItemScreen.tsx
+│   └── index.ts
+│
 ├── types.ts                         # TypeScript interfaces
 ├── damage-claim-types.ts            # Damage claim specific types
 ├── index.ts                         # Main barrel export
@@ -68,6 +76,31 @@ Handles the rental booking and payment process.
 **Route**: `/damage-claim`
 
 Allows users to report damage to rented items.
+
+### My Listings Screen
+**Route**: `/my-listings`
+
+Displays all items listed by the current user with their status and management options.
+
+**Features**:
+- List of user's items with images and prices
+- Status badges (Available, Rented Out, Pending Approval)
+- Edit button for each item
+- Floating action button to add new items
+- Empty state when no items are listed
+
+### List Item Screen
+**Route**: `/list-item`
+
+Multi-step form to list a new item for rent.
+
+**Features**:
+- Progress indicator (Step 1 of 3)
+- Photo upload section
+- Item details form (title, category, description)
+- Price per day input
+- Fixed bottom CTA button
+- Close button to exit
 
 ## 📦 Components
 

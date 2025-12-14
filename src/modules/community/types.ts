@@ -26,3 +26,16 @@ export interface Announcement {
   title: string;
   description: string;
 }
+
+// Leaderboard Types
+export interface LeaderboardUser {
+  id: string;
+  rank: number;
+  name: string;
+  location: string;
+  itemsRentedOut: number;
+  avatar: string;
+  isCurrentUser?: boolean;
+}
+
+export type FilterType = 'city' | 'college';
