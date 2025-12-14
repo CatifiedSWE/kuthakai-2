@@ -1,1 +1,22 @@
-import { ExploreScreen } from '@/modules/explore';\nimport {\n  demoExploreCategories,\n  demoFeaturedItems,\n  demoExploreItems,\n} from '@/demo';\nimport { Metadata } from 'next';\n\nexport const metadata: Metadata = {\n  title: 'Explore Rentals - Kuthakai',\n  description: 'Browse and discover rental items near you',\n};\n\nexport default function Page() {\n  return (\n    <ExploreScreen\n      categories={demoExploreCategories}\n      featuredItems={demoFeaturedItems}\n      items={demoExploreItems}\n    />\n  );\n}
+import { ExploreScreen } from '@/modules/explore';
+import {
+  demoExploreCategories,
+  demoFeaturedItems,
+  demoExploreItems,
+} from '@/demo';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Explore Rentals - Kuthakai',
+  description: 'Browse and discover rental items near you',
+};
+
+export default function Page() {
+  return (
+    <ExploreScreen
+      categories={demoExploreCategories}
+      featuredItems={demoFeaturedItems}
+      items={demoExploreItems}
+    />
+  );
+}
