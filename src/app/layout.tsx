@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
+import { DesktopNavbar, DesktopFooter, MobileTopbar, MobileBottomNav } from '@/modules/layouts/navigation';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,7 +31,17 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} antialiased`}>
-        {children}
+        <div className="relative flex min-h-screen w-full flex-col">
+          <DesktopNavbar />
+          <MobileTopbar />
+          
+          <main className="flex-grow pb-24 lg:pb-8">
+            {children}
+          </main>
+
+          <DesktopFooter />
+          <MobileBottomNav />
+        </div>
       </body>
     </html>
   );
