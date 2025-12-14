@@ -1,30 +1,31 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function DesktopFooter() {
   const footerLinks = {
     company: [
-      { label: 'About Us', href: '#about' },
-      { label: 'How It Works', href: '#how-it-works' },
-      { label: 'Careers', href: '#careers' },
-      { label: 'Press', href: '#press' },
+      { label: 'About Us', href: '/about-us' },
+      { label: 'How It Works', href: '/how-it-works' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Press', href: '/press' },
     ],
     support: [
-      { label: 'Help Center', href: '#help' },
-      { label: 'Safety', href: '#safety' },
-      { label: 'Trust & Security', href: '#trust' },
-      { label: 'Contact Us', href: '#contact' },
+      { label: 'Help Center', href: '/faq-help-center' },
+      { label: 'Safety', href: '/safety' },
+      { label: 'Trust & Security', href: '/trust' },
+      { label: 'Contact Us', href: '/contact-support' },
     ],
     legal: [
-      { label: 'Terms of Service', href: '#terms' },
-      { label: 'Privacy Policy', href: '#privacy' },
-      { label: 'Cookie Policy', href: '#cookies' },
-      { label: 'Insurance', href: '#insurance' },
+      { label: 'Terms of Service', href: '/terms-of-service' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Cookie Policy', href: '/cookies' },
+      { label: 'Insurance', href: '/insurance-and-guarantee' },
     ],
     community: [
-      { label: 'Blog', href: '#blog' },
-      { label: 'Community Guidelines', href: '#guidelines' },
-      { label: 'Refer a Friend', href: '#refer' },
-      { label: 'Become a Lender', href: '#lender' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Community Guidelines', href: '/guidelines' },
+      { label: 'Refer a Friend', href: '/refer' },
+      { label: 'Become a Lender', href: '/lender' },
     ],
   };
 
@@ -71,12 +72,12 @@ export default function DesktopFooter() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#f86b59] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -88,12 +89,12 @@ export default function DesktopFooter() {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#f86b59] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -105,12 +106,12 @@ export default function DesktopFooter() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#f86b59] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -122,12 +123,12 @@ export default function DesktopFooter() {
             <ul className="space-y-3">
               {footerLinks.community.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#f86b59] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

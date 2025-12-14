@@ -33,13 +33,13 @@ export default function DesktopNavbar({ isLoggedIn = false }: DesktopNavbarProps
           {!isLoggedIn && (
             <nav className="flex items-center gap-8">
               {desktopNavItems.map((item) => (
-                <a
+                <Link
                   key={item.id}
                   href={item.href}
                   className="text-[#181211] dark:text-white hover:text-[#f86b59] font-medium transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
           )}
