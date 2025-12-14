@@ -4,12 +4,28 @@
   --background: #f8f6f5;
   --foreground: #181211;
   --primary: #f86b59;
+  --background-light: #fbfdfc;
+  --background-dark: #221210;
+  --text-light: #333333;
+  --text-dark: #f8f6f5;
+  --text-secondary-light: #888888;
+  --text-secondary-dark: #a0a0a0;
+  --text-primary-light: #333333;
+  --text-primary-dark: #fbfdfc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-background-light: var(--background-light);
+  --color-background-dark: var(--background-dark);
+  --color-text-light: var(--text-light);
+  --color-text-dark: var(--text-dark);
+  --color-text-secondary-light: var(--text-secondary-light);
+  --color-text-secondary-dark: var(--text-secondary-dark);
+  --color-text-primary-light: var(--text-primary-light);
+  --color-text-primary-dark: var(--text-primary-dark);
   --font-inter: var(--font-inter);
 }
 

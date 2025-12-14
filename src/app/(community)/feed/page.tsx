@@ -1,10 +1,1 @@
-export default function Page() {
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
-  );
-}
+import { FeedScreen } from '@/modules/community';\nimport { communityPosts, featuredMember, announcement } from '@/demo';\nimport type { Metadata } from 'next';\n\nexport const metadata: Metadata = {\n  title: 'Community Feed - Kuthakai',\n  description: 'Connect with the Kuthakai community. Share your rental experiences, discover featured members, and stay updated with the latest announcements',\n};\n\nexport default function CommunityFeedPage() {\n  return (\n    <FeedScreen \n      posts={communityPosts}\n      featuredMember={featuredMember}\n      announcement={announcement}\n    />\n  );\n}
