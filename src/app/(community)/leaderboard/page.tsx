@@ -1,10 +1,7 @@
+'use client';
+
 import { LeaderboardScreen } from '@/modules/community';
 import { demoLeaderboardUsers } from '@/demo';
-
-export const metadata = {
-  title: 'Leaderboard - Kuthakai',
-  description: 'Top renters on Kuthakai',
-};
 
 export default function Page() {
   const handleCityFilter = () => {

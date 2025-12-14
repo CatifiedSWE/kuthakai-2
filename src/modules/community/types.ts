@@ -16,7 +16,7 @@ export interface Post {
   shares: number;
 }
 
-export interface FeaturedMember {
+export interface FeaturedMemberData {
   name: string;
   description: string;
   image: string;

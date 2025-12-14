@@ -1,11 +1,11 @@
 'use client';
 
 import { FeedPost, FeaturedMember, AnnouncementCard, FeedDivider, FloatingActionButton } from '../components';
-import { Post, FeaturedMember as FeaturedMemberType, Announcement } from '../types';
+import { Post, FeaturedMemberData, Announcement } from '../types';
 
 interface FeedScreenProps {
   posts: Post[];
-  featuredMember: FeaturedMemberType;
+  featuredMember: FeaturedMemberData;
   announcement: Announcement;
 }
 

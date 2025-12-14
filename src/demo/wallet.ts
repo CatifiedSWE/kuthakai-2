@@ -5,7 +5,7 @@ export const demoWalletBalance: WalletBalance = {
   currency: '₹'
 };
 
-export const demoTransactions: Transaction[] = [
+export const demoWalletTransactions: Transaction[] = [
   {
     id: '1',
     type: 'earning',

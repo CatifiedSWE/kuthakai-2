@@ -1,5 +1,5 @@
 import { WalletTransactionScreen } from '@/modules/wallet';
-import { demoWalletBalance, demoTransactions, demoTransactionFilters } from '@/demo';
+import { demoWalletBalance, demoWalletTransactions, demoTransactionFilters } from '@/demo';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export default function TransactionsPage() {
   return (
     <WalletTransactionScreen 
       balance={demoWalletBalance}
-      transactions={demoTransactions}
+      transactions={demoWalletTransactions}
       filters={demoTransactionFilters}
     />
   );

@@ -1,9 +1,6 @@
-import { ListItemScreen } from '@/modules/listings';
+'use client';
 
-export const metadata = {
-  title: 'List Your Item - Kuthakai',
-  description: 'List your item for rent on Kuthakai',
-};
+import { ListItemScreen } from '@/modules/listings';
 
 export default function Page() {
   const handleSubmit = (data: any) => {

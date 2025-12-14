@@ -2,14 +2,14 @@
 
 import { ProfileAppBar } from '@/modules/profile';
 import { AboutHero, AboutSection, TeamScroll } from '../components';
-import { TeamMember } from '../types';
+import { TeamMemberData } from '../types';
 
 interface AboutUsScreenProps {
   heroImage: string;
   heroAlt: string;
   storyContent: string;
   missionContent: string;
-  teamMembers: TeamMember[];
+  teamMembers: TeamMemberData[];
 }
 
 export default function AboutUsScreen({

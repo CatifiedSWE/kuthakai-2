@@ -1,6 +1,6 @@
 // Legal module types
 
-export interface TeamMember {
+export interface TeamMemberData {
   id: string;
   name: string;
   role: string;
@@ -46,7 +46,7 @@ export interface ProhibitedItem {
 }
 
 // Rental Agreement Types
-export interface RentalSummary {
+export interface RentalSummaryData {
   itemName: string;
   itemImage: string;
   owner: string;
@@ -56,7 +56,7 @@ export interface RentalSummary {
 }
 
 export interface RentalAgreementContent {
-  summary: RentalSummary;
+  summary: RentalSummaryData;
   agreementText: AgreementSection[];
 }
 

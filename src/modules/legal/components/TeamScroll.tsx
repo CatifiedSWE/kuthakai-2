@@ -1,9 +1,9 @@
 import TeamMember from './TeamMember';
-import { TeamMember as TeamMemberType } from '../types';
+import { TeamMemberData } from '../types';
 
 interface TeamScrollProps {
   title: string;
-  members: TeamMemberType[];
+  members: TeamMemberData[];
 }
 
 export default function TeamScroll({ title, members }: TeamScrollProps) {

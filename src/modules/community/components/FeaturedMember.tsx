@@ -1,7 +1,7 @@
-import { FeaturedMember as FeaturedMemberType } from '../types';
+import { FeaturedMemberData } from '../types';
 
 interface FeaturedMemberProps {
-  member: FeaturedMemberType;
+  member: FeaturedMemberData;
 }
 
 export default function FeaturedMember({ member }: FeaturedMemberProps) {

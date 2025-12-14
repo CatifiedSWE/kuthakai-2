@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { RentalSummary as RentalSummaryType } from '../types';
+import { RentalSummaryData } from '../types';
 
 interface RentalSummaryProps {
-  summary: RentalSummaryType;
+  summary: RentalSummaryData;
 }
 
 export default function RentalSummary({ summary }: RentalSummaryProps) {
