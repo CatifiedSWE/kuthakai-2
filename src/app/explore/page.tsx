@@ -1,10 +1,1 @@
-export default function Page() {
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
-  );
-}
+import { ExploreScreen } from '@/modules/explore';\nimport {\n  demoExploreCategories,\n  demoFeaturedItems,\n  demoExploreItems,\n} from '@/demo';\nimport { Metadata } from 'next';\n\nexport const metadata: Metadata = {\n  title: 'Explore Rentals - Kuthakai',\n  description: 'Browse and discover rental items near you',\n};\n\nexport default function Page() {\n  return (\n    <ExploreScreen\n      categories={demoExploreCategories}\n      featuredItems={demoFeaturedItems}\n      items={demoExploreItems}\n    />\n  );\n}

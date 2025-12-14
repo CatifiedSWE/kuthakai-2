@@ -27,6 +27,8 @@ export const guestMenuItems: NavItem[] = [
 ];
 
 export const userMenuItems: NavItem[] = [
+  { id: 'dashboard', label: 'Dashboard', href: '/overview' },
+  { id: 'earnings', label: 'Earnings', href: '/earnings-summary' },
   { id: 'profile', label: 'My Profile', href: '/profile' },
   { id: 'listings', label: 'My Listings', href: '#listings' },
   { id: 'rentals', label: 'My Rentals', href: '#rentals' },

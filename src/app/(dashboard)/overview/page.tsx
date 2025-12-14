@@ -1,10 +1,24 @@
+import { OverviewScreen } from '@/modules/dashboard';
+import {
+  demoUserDashboard,
+  demoEarnings,
+  demoBookings,
+  demoNotifications,
+} from '@/demo';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dashboard Overview - Kuthakai',
+  description: 'View your earnings, upcoming bookings, and recent notifications',
+};
+
 export default function Page() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
+    <OverviewScreen
+      user={demoUserDashboard}
+      earnings={demoEarnings}
+      bookings={demoBookings}
+      notifications={demoNotifications}
+    />
   );
 }

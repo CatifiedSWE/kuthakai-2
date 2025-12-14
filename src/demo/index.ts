@@ -9,3 +9,5 @@ export * from './team-members';
 export * from './community-posts';
 export * from './bookings';
 export * from './support';
+export * from './dashboard';
+export * from './explore';
