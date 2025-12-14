@@ -5,4 +5,5 @@ export * from './insurance-guarantee-screen';
 export * from './privacy-policy-screen';
 export * from './prohibited-items-screen';
 export * from './rental-agreement-screen';
+export * from './terms-of-service-screen';
 export * from './types';

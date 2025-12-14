@@ -65,3 +65,22 @@ export interface AgreementSection {
   title: string;
   content: string;
 }
+
+// Terms of Service Types
+export interface TermsSection {
+  id: string;
+  heading: string;
+  content: string;
+  items?: string[];
+}
+
+export interface TermsOfServiceContent {
+  title: string;
+  lastUpdated?: string;
+  sections: TermsSection[];
+  contact?: {
+    heading: string;
+    text: string;
+    email: string;
+  };
+}

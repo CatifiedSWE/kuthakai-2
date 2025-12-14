@@ -20,3 +20,4 @@ export * from './onboarding';
 export * from './rentals';
 export * from './reviews';
 export * from './requests';
+export * from './wallet';

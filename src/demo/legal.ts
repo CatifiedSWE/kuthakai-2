@@ -1,4 +1,4 @@
-import { GuaranteeOption, PrivacyPolicyContent, ProhibitedItem, RentalAgreementContent } from '@/modules/legal';
+import { GuaranteeOption, PrivacyPolicyContent, ProhibitedItem, RentalAgreementContent, TermsOfServiceContent } from '@/modules/legal';
 
 export const demoGuaranteeOptions: GuaranteeOption[] = [
   {
@@ -151,5 +151,44 @@ export const demoRentalAgreement: RentalAgreementContent = {
       content: 'Cancellations made within 48 hours of the rental start date are non-refundable.',
     },
   ],
+};
+
+
+export const demoTermsOfServiceContent: TermsOfServiceContent = {
+  title: 'Terms of Service',
+  lastUpdated: 'August 2024',
+  sections: [
+    {
+      id: 'introduction',
+      heading: '1. Introduction',
+      content: 'Welcome to Kuthakai! These Terms of Service govern your use of our peer-to-peer rental marketplace. By accessing or using our application, you agree to be bound by these terms and our <a class="text-primary font-medium underline" href="/privacy-policy">Privacy Policy</a>. Please read them carefully.',
+    },
+    {
+      id: 'user-accounts',
+      heading: '2. User Accounts',
+      content: 'To use certain features of the app, you must register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate. You are responsible for safeguarding your password and for all activities that occur under your account.',
+    },
+    {
+      id: 'prohibited-activities',
+      heading: '3. Prohibited Activities',
+      content: 'When using Kuthakai, you agree not to engage in any of the following prohibited activities:',
+      items: [
+        'Violate any applicable laws or regulations.',
+        'List any items that are illegal, stolen, or that you do not have the right to rent.',
+        'Engage in any fraudulent activity, including but not limited to, misrepresenting items or your identity.',
+        'Harass, abuse, or harm another person, or post any content that is obscene, defamatory, or threatening.',
+      ],
+    },
+    {
+      id: 'liability',
+      heading: '4. Limitation of Liability',
+      content: 'To the fullest extent permitted by applicable law, Kuthakai shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.',
+    },
+  ],
+  contact: {
+    heading: '5. Contact Information',
+    text: 'If you have any questions about these Terms, please contact us at',
+    email: 'support@kuthakai.com',
+  },
 };
 

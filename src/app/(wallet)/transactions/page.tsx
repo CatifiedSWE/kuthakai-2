@@ -1,10 +1,18 @@
-export default function Page() {
+import { WalletTransactionScreen } from '@/modules/wallet';
+import { demoWalletBalance, demoTransactions, demoTransactionFilters } from '@/demo';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Wallet & Transactions - Kuthakai',
+  description: 'View your wallet balance and transaction history on Kuthakai',
+};
+
+export default function TransactionsPage() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
+    <WalletTransactionScreen 
+      balance={demoWalletBalance}
+      transactions={demoTransactions}
+      filters={demoTransactionFilters}
+    />
   );
 }
