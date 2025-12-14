@@ -1,6 +1,6 @@
 # Listings Module
 
-This module handles all listing and rental-related functionality including item details, booking checkout, and damage claims.
+This module handles all listing and rental-related functionality including item details, booking checkout, damage claims, return & feedback, and rental request approvals.
 
 ## 📁 Structure
 
@@ -19,6 +19,11 @@ This module handles all listing and rental-related functionality including item 
 │   ├── DamageDescriptionInput.tsx   # Damage report input
 │   ├── DamageDetailsDisplay.tsx     # Damage info display
 │   ├── SecurePaymentFooter.tsx      # Payment CTA footer
+│   ├── RentalItemCard.tsx           # Rental item display
+│   ├── PhotoUpload.tsx              # Photo upload component
+│   ├── StarRating.tsx               # Interactive star rating
+│   ├── RequestCard.tsx              # Rental request card
+│   ├── RequestsEmptyState.tsx       # Empty state for requests
 │   └── index.ts                     # Barrel export
 │
 ├── item-details-screen/             # Item details page
@@ -39,6 +44,14 @@ This module handles all listing and rental-related functionality including item 
 │
 ├── list-item-screen/                # List new item form
 │   ├── ListItemScreen.tsx
+│   └── index.ts
+│
+├── return-feedback-screen/          # Return item & feedback
+│   ├── ReturnFeedbackScreen.tsx
+│   └── index.ts
+│
+├── requests-approvals-screen/       # Manage rental requests
+│   ├── RequestsApprovalsScreen.tsx
 │   └── index.ts
 │
 ├── types.ts                         # TypeScript interfaces

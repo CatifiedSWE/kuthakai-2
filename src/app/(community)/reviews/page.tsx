@@ -1,10 +1,21 @@
+import { ReviewsScreen } from '@/modules/community';
+import {
+  demoRatingSummary,
+  demoReviewsReceived,
+  demoReviewsGiven,
+} from '@/demo';
+
+export const metadata = {
+  title: 'Reviews & Ratings - Kuthakai',
+  description: 'View your overall rating and reviews from other users',
+};
+
 export default function Page() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
-        <p className="text-gray-600">This page is under development</p>
-      </div>
-    </div>
+    <ReviewsScreen
+      ratingSummary={demoRatingSummary}
+      reviewsReceived={demoReviewsReceived}
+      reviewsGiven={demoReviewsGiven}
+    />
   );
 }

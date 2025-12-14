@@ -8,3 +8,6 @@ export { default as PostActions } from './PostActions';
 export { default as PostHeader } from './PostHeader';
 export { default as LeaderboardCard } from './LeaderboardCard';
 export { default as FilterButton } from './FilterButton';
+export { default as RatingsSummary } from './RatingsSummary';
+export { default as ReviewCard } from './ReviewCard';
+export { default as ReviewsTabNavigation } from './ReviewsTabNavigation';

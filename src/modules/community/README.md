@@ -1,6 +1,6 @@
 # Community Module
 
-This module handles all community-related features including the community feed, leaderboard, and social interactions.
+This module handles all community-related features including the community feed, leaderboard, reviews & ratings, and social interactions.
 
 ## 📁 Structure
 
@@ -17,6 +17,9 @@ This module handles all community-related features including the community feed,
 │   ├── PostHeader.tsx            # Post author header
 │   ├── LeaderboardCard.tsx       # Leaderboard user card
 │   ├── FilterButton.tsx          # Filter button component
+│   ├── RatingsSummary.tsx        # Overall rating display
+│   ├── ReviewCard.tsx            # Individual review card
+│   ├── ReviewsTabNavigation.tsx  # Reviews received/given tabs
 │   └── index.ts                  # Barrel export
 │
 ├── feed-screen/                 # Community feed
@@ -25,6 +28,10 @@ This module handles all community-related features including the community feed,
 │
 ├── leaderboard-screen/          # Top renters leaderboard
 │   ├── LeaderboardScreen.tsx
+│   └── index.ts
+│
+├── reviews-screen/              # Reviews & ratings
+│   ├── ReviewsScreen.tsx
 │   └── index.ts
 │
 ├── types.ts                     # TypeScript interfaces
@@ -43,6 +50,11 @@ Displays the community feed with posts, announcements, and featured members.
 **Route**: `/leaderboard`
 
 Shows top users ranked by items rented out, with filtering options.
+
+### Reviews Screen
+**Route**: `/reviews`
+
+Displays user's overall rating, rating breakdown, and reviews received/given with tab navigation.
 
 **Features**:
 - Ranked list of users with profile pictures
